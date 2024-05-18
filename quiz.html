@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .question {
+            margin: 20px 0;
+        }
+        .options {
+            list-style-type: none;
+            padding: 0;
+        }
+        .options li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div class="question">
+        <p>Question 1: What is the capital of France?</p>
+        <ul class="options">
+            <li><button onclick="checkAnswer(this, 'wrong')">Berlin</button></li>
+            <li><button onclick="checkAnswer(this, 'wrong')">Madrid</button></li>
+            <li><button onclick="checkAnswer(this, 'correct')">Paris</button></li>
+            <li><button onclick="checkAnswer(this, 'wrong')">Rome</button></li>
+        </ul>
+    </div>
+    <!-- Add more questions here -->
+    
+    <audio id="correct-sound" src="correct.mp3"></audio>
+    <audio id="wrong-sound" src="wrong.mp3"></audio>
+
+    <script>
+        function checkAnswer(button, answer) {
+            if (answer === 'correct') {
+                document.getElementById('correct-sound').play();
+                alert('Correct answer!');
+            } else {
+                document.getElementById('wrong-sound').play();
+                window.navigator.vibrate(200);
+                alert('Wrong answer. Try again.');
+            }
+        }
+    </script>
+</body>
+</html>
